@@ -1,0 +1,27 @@
+#!/usr/bin/env python
+# -*- coding: UTF-8 -*-
+# __Author__ = 'gaogao'
+
+import time
+from selenium import webdriver
+
+driver = webdriver.Chrome('C:\Program Files (x86)\chromedriver_win32\chromedriver.exe') # 打开chrome
+driver.maximize_window()    # 最大化浏览器窗口
+driver.implicitly_wait(8)   # 设置隐式时间等待
+
+driver.get('https://www.baidu.com')  # 地址栏输入百度地址
+driver.find_element_by_xpath("//*[@id='kw']").send_keys("selenium")  # 搜索输入框输入Selenium
+driver.find_element_by_xpath("//*[@id='su']").click()  #点击百度一下按钮
+
+time.sleep(2)
+
+# 这里通过元素XPath表达式来确定该元素显示在结果列表，从而判断Selenium官网这个链接显示在结果列表。
+# 这里采用了相对元素定位方法/../
+# 通过selenium方法is_displayed() 来判断我们的目标元素是否在页面显示。
+driver.find_element_by_xpath("//div/h3/a[text()='官网']/../a/em[text()='Selenium']").is_displayed()
+driver.quit()
+
+
+
+
+

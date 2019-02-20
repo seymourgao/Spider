@@ -5,7 +5,7 @@
 from urllib import request
 from bs4 import BeautifulSoup
 import collections
-import re
+import RegularExpression
 import os
 import time
 import sys
@@ -38,7 +38,7 @@ class download(object):
     """
 
     def get_download_url(self):
-        charter = re.compile(u'[第弟](.+)章', re.IGNORECASE)
+        charter = RegularExpression.compile(u'[第弟](.+)章', RegularExpression.IGNORECASE)
         target_req = request.Request(url=self.__target_url, headers=self.__head)
         target_response = request.urlopen(target_req)
         target_html = target_response.read().decode('gbk', 'ignore')

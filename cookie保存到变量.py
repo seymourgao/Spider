@@ -19,6 +19,6 @@ if __name__ == '__main__':
     response = opener.open('http://www.baidu.com')
     # 打印cookie信息
     for item in cookie:
-        print('Name = %s' % item.name)
+        print('Name = %s' % item.name)吗·
         print('Value = %s' % item.value)
 

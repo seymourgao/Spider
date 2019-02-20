@@ -3,7 +3,7 @@
 # __Author__ = 'gaogao'
 
 #-*-coding:utf-8-*-
-import re
+import RegularExpression
 import json
 from bs4 import BeautifulSoup
 from urllib import request, parse
@@ -26,7 +26,7 @@ if __name__ == '__main__':
 
     a = str(bf.find_all('script'))
 
-    pattern = re.compile("url : '(.+)',", re.IGNORECASE)
+    pattern = RegularExpression.compile("url : '(.+)',", RegularExpression.IGNORECASE)
     url = pattern.findall(a)[0]
 
     get_movie_data = {
